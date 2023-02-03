@@ -15,6 +15,10 @@ typedef struct pd{
     char    **floor;
     char    **map;
     int     *i;
-}   t_pd;
+}t_pd;
+void    f_perror();
 void    check_fd(int fd);
+void    *ft_calloc(size_t i);
+char    *ft_strdup(char *s);
+char    *ft_strjoin(char *s1, char *s2);
 #endif
