@@ -1,33 +1,28 @@
-#include "gnl/get_next_line.h"
 #include "p.h"
 
 t_pd    *parsing(int fd)
 {
-
+    int i;
+    return (0);
 }
 
 int main(int ac, char **av)
 {
-    int i;
-    int fd;
+    int     i;
+    int     fd;
     char    *str;
+    char    *temp;
+    char    *temp2;
 
     fd = open("test", O_RDONLY);
-    if (fd == -1)
-    {
-        printf("ERROR\n");
-        
-    }
-    if (fd)
-    {
-    }
+    check_fd(fd);
     i = 0;
-    while (i < 7)
+    str = calloc(sizeof(char) * 101, sizeof(char) * 101);
+    while (read(fd, str, 100))
     {
-        str = get_next_line(fd);
-        printf("%s", str);
+        printf("%s\n", str);
         i++;
-        free(str);
+        // free(str);
     }
-    while (1);
+    // while (1);
 }
