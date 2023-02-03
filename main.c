@@ -1,11 +1,26 @@
 #include "gnl/get_next_line.h"
+#include "p.h"
 
-int main()
+t_pd    *parsing(int fd)
+{
+
+}
+
+int main(int ac, char **av)
 {
     int i;
-    int fd = open("test", O_RDONLY);
+    int fd;
     char    *str;
 
+    fd = open("test", O_RDONLY);
+    if (fd == -1)
+    {
+        printf("ERROR\n");
+        
+    }
+    if (fd)
+    {
+    }
     i = 0;
     while (i < 7)
     {
