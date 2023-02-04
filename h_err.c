@@ -26,3 +26,17 @@ void    check_fd(int fd)
         exit(0);
     }
 }
+
+void    skip_to_next(int m, t_pd *pd)
+{
+    if (!pd->i_b)
+        f_perror();
+    while (pd->i_b[pd->i] && pd->i_b[pd->i] != ' ' && pd->i_b[pd->i] != '\n')
+        pd->i++;
+    if (pd->i_b[pd->i] == '\n')
+        f_perror();
+    if (pd->i_b[pd->i] == ' ')
+        pd->i++;
+    if (!pd->i_b[pd->i] || pd->i_b[pd->i] == '\n')
+        f_perror();
+}

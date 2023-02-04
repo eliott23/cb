@@ -30,6 +30,7 @@ int element_id(char *s)
             return (i);
         i++;
     }
+    printf("%s\n", s);
     f_perror();
     return (-1);
 }
@@ -57,6 +58,7 @@ void    s_dup(char *s, t_pd *pd, int e)
     char    *path;
 
     i = 0;
+    j = 0;
     while (s[i] && s[i] != '\n')
         i++;
     path = malloc(sizeof(char) * (i + 1));
@@ -68,7 +70,6 @@ void    s_dup(char *s, t_pd *pd, int e)
         j++;
     }
     path[j] = 0;
-    printf("here\n");
     store_path(pd, path, e);
 }
 
@@ -84,19 +85,22 @@ void    m_parsing(t_pd *pd)
         while (pd->i_b[pd->i] == '\n')
             pd->i++;
         e = element_id((pd->i_b) + pd->i);
+        printf("lol\n");
         check_elmnt_n(1, pd, e);
-        while (pd->i_b[pd->i])
+        while (pd->i_b[pd->i] && pd->i_b[pd->i] != '\n')
         {
             if (pd->i_b[pd->i] == ' ')
             {
                 pd->i++;
                 if (!(pd->i_b[pd->i]))
                     exit(0);
-        printf("lol this is the e %d\n", e);
                 s_dup(pd->i_b + pd->i, pd, e);
-                exit(0);
+                break;
             }
             pd->i++;
         }
+        if (pd->i_b[pd->i] == '\n')
+            f_perror;
+         
     }
 }

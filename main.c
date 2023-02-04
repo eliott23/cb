@@ -58,5 +58,6 @@ int main(int ac, char **av)
         f_perror();
     check_elmnt_n(0, &pd, 0);
     m_parsing(&pd);
+    printf("so :%s\n", pd.so);
     sleep(100);
 }
