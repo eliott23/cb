@@ -85,22 +85,8 @@ void    m_parsing(t_pd *pd)
         while (pd->i_b[pd->i] == '\n')
             pd->i++;
         e = element_id((pd->i_b) + pd->i);
-        printf("lol\n");
         check_elmnt_n(1, pd, e);
-        while (pd->i_b[pd->i] && pd->i_b[pd->i] != '\n')
-        {
-            if (pd->i_b[pd->i] == ' ')
-            {
-                pd->i++;
-                if (!(pd->i_b[pd->i]))
-                    exit(0);
-                s_dup(pd->i_b + pd->i, pd, e);
-                break;
-            }
-            pd->i++;
-        }
-        if (pd->i_b[pd->i] == '\n')
-            f_perror;
-         
+        skip_to_next(1, pd);
+        exit(0);
     }
 }
