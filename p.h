@@ -14,8 +14,11 @@ typedef struct pd{
     char    **sqef;
     char    **floor;
     char    **map;
-    int     *i;
+    int     i;//iterator over the string;
+    int     elem[7];
+    int     n;
 }t_pd;
+void    check_elmnt_n(char *s, int i, t_pd *pd,  int n);
 void    f_perror();
 void    check_fd(int fd);
 void    *ft_calloc(size_t i);
