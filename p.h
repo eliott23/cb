@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 typedef struct pd{
-    char    *i_buffer;
+    char    *i_b;
     char    *so;
     char    *no;
     char    *we;
@@ -18,7 +18,9 @@ typedef struct pd{
     int     elem[7];
     int     n;
 }t_pd;
-void    check_elmnt_n(char *s, int i, t_pd *pd,  int n);
+void    m_parsing(t_pd *pd);
+char    **ft_split(char const *s, char c);
+void    check_elmnt_n(int i, t_pd *pd,  int n);
 void    f_perror();
 void    check_fd(int fd);
 void    *ft_calloc(size_t i);

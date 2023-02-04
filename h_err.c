@@ -1,6 +1,6 @@
 #include "p.h"
 
-void    check_elmnt_n(char *s, int i, t_pd *pd,  int n)
+void    check_elmnt_n(int i, t_pd *pd,  int n)
 {
     if (i == 0)
     {

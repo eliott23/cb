@@ -53,9 +53,10 @@ int main(int ac, char **av)
 
     if (ac != 2)
         f_perror();
-    pd.i_buffer = m_read(av[1]);
-    if (!pd.i_buffer)
+    pd.i_b = m_read(av[1]);
+    if (!pd.i_b)
         f_perror();
-    check_
+    check_elmnt_n(0, &pd, 0);
+    m_parsing(&pd);
     sleep(100);
 }
