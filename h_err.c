@@ -35,19 +35,19 @@ void    skip_to_next(int m, t_pd *pd)
         pd->i++;
     if (pd->i_b[pd->i] == '\n' && m)
         f_perror();
-    if (pd->i_b[pd->i] == ' ')
-    {
-        if (!m)
-            f_perror();
+    if (pd->i_b[pd->i] == ' ' && m)
         pd->i++;
-    }
     if (m)
     {
         if (!pd->i_b[pd->i] || pd->i_b[pd->i] == '\n'\
         || pd->i_b[pd->i] == ' ')
             f_perror();
     }
-    printf("lol\n");
-    printf("this is %s\n" , pd->i_b);
-    printf("coz this is i %d\n", pd->i);
+    else
+    {
+        if (pd->i_b[pd->i] == ' ')
+            f_perror();
+        if (pd->i_b[pd->i])
+            pd->i++;
+    }
 }

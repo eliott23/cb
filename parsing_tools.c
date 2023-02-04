@@ -87,6 +87,8 @@ void    m_parsing(t_pd *pd)
         e = element_id((pd->i_b) + pd->i);
         check_elmnt_n(1, pd, e);
         skip_to_next(1, pd);
-        exit(0);
+        skip_to_next(0, pd);
+        printf("lol\n%s\n" , &pd->i_b[pd->i]);
+        // exit(0);
     }
 }
