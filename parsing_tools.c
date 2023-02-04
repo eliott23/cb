@@ -46,9 +46,15 @@ void    store_path(t_pd *pd, char *path, int e)
     if (e == 3)
         pd->ea = path;
     if (e == 4)
+    {
         pd->floor = ft_split(path, ',');
+        free(path);
+    }
     if (e == 5)
+    {
         pd->sqef = ft_split(path, ',');
+        free(path);
+    }
 }
 
 void    s_dup(char *s, t_pd *pd, int e)
@@ -80,15 +86,15 @@ void    m_parsing(t_pd *pd)
 
     pd->i = 0;
     e = 0;
-    while (pd->i_b[pd->i])  // add a conditon about the reached number of elmnt;
+    while (pd->i_b[pd->i] && pd->n < 6)  // add a conditon about the reached number of elmnt;
     {
         while (pd->i_b[pd->i] == '\n')
             pd->i++;
         e = element_id((pd->i_b) + pd->i);
         check_elmnt_n(1, pd, e);
         skip_to_next(1, pd);
+        s_dup(pd->i_b + pd->i, pd, e);
+        pd->n++;
         skip_to_next(0, pd);
-        printf("lol\n%s\n" , &pd->i_b[pd->i]);
-        // exit(0);
     }
 }

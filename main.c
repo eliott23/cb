@@ -58,5 +58,10 @@ int main(int ac, char **av)
         f_perror();
     check_elmnt_n(0, &pd, 0);
     m_parsing(&pd);
+    printf("NO:%s\n", pd.no);
+    printf("SO:%s\n", pd.so);
+    printf("WE:%s\n", pd.we);
+    printf("EA:%s\n", pd.ea);
+    printf("n:%d\n", pd.n);
     sleep(100);
 }
