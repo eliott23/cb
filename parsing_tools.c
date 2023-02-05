@@ -106,7 +106,5 @@ void    m_parsing(t_pd *pd)
         }
         pd->i++;
     }
-    printf("the i_b is |%s|\n", &pd->i_b[pd->i]);
-    // printf("i == %d\n", pd->i);
-    // map_p(pd);
+    map_p(pd);
 }

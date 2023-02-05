@@ -1,5 +1,4 @@
 #include "p.h"
-
 // void    rm_spaces(char *s)
 // {
 //     int i;
@@ -10,6 +9,7 @@
 //         while (s[i])
 //     }
 // }
+
 int check_empty(char *s)
 {
     int i;
@@ -22,24 +22,97 @@ int check_empty(char *s)
     return (0);
 }
 
-void    map_p(t_pd *pd)
+void    check_char(char *s)
+{
+    int i;
+    int f;
+
+    i = 0;
+    f = 0;
+    while (s[i])
+    {
+        if (s[i] != 'N' && s[i] != '\n' && \
+        s[i] != 'S' && s[i] != 'E' && s[i] != 'W'\
+        && s[i] != '0' && s[i] != '1' && s[i] != ' ')
+            f_perror();
+        if (s[i] == 'N' ||\
+        s[i] == 'S' || s[i] == 'E' || s[i] == 'W')
+        {
+            if (f)
+            {
+                fprintf(stderr, "dup player!\n");
+                f_perror();
+            }
+            f = 1;
+        }
+        i++;
+    }
+    if (!f)
+    {
+        fprintf(stderr, "alllaaa asahbe!!\n");
+        f_perror();
+    }
+}
+
+void    check_newl(char *s)
+{
+    int i;
+
+    i = 0;
+    if (check_empty(s))
+    {
+        fprintf(stderr, "empty line inside the map!\n");
+        f_perror();
+    }
+    while (s[i])
+    {
+        if (s[i] == '\n' && s[i + 1])
+        {
+            if (check_empty(s + i + 1))
+            {
+                printf("went here!\n");
+                fprintf(stderr, "empty line inside the map!\n");
+                f_perror();
+            }
+        }
+        i++;
+    }
+}
+void    check_maze(char **map)
 {
     int i;
     int j;
 
     i = 0;
     j = 0;
+    while (map[i])
+    {
+        j = 0;
+        while (map[i][j])
+            j++;
+        i++;
+    }
+}
+
+void    map_p(t_pd *pd)
+{
+    int     i;
+    int     j;
+
+    i = 0;
+    j = 0;
     if (!pd->i_b[pd->i])
         f_perror();
+    check_char(&pd->i_b[pd->i]);
+    check_newl(&pd->i_b[pd->i]);
     pd->map = ft_split(&pd->i_b[pd->i], '\n');
-    // while (pd->map[i])
-    // {
-    //     if (!m_srch(&pd->map[i][j], '1') && !m_srch(&pd->map[i][j], '0'))
-    // }
-    i = 0;
+    if (!pd->map)
+        f_perror();
     while (pd->map[i])
     {
         printf("%s\n", pd->map[i]);
         i++;
     }
+    check_maze(pd->map);
+    i = 0;
 }

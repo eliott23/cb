@@ -17,6 +17,7 @@ typedef struct pd{
     int     i;//iterator over the string;
     int     elem[7];
     int     n;
+    int     l;
 }t_pd;
 int check_empty(char *s);
 int m_srch(char *s, char c, char lim);
