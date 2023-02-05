@@ -18,6 +18,7 @@ typedef struct pd{
     int     elem[7];
     int     n;
 }t_pd;
+void    map_p(t_pd *pd);
 void    skip_to_next(int m, t_pd *pd);
 void    m_parsing(t_pd *pd);
 char    **ft_split(char const *s, char c);

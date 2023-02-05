@@ -86,7 +86,7 @@ void    m_parsing(t_pd *pd)
 
     pd->i = 0;
     e = 0;
-    while (pd->i_b[pd->i] && pd->n < 6)  // add a conditon about the reached number of elmnt;
+    while (pd->i_b[pd->i] && pd->n < 6)
     {
         while (pd->i_b[pd->i] == '\n')
             pd->i++;
@@ -97,4 +97,7 @@ void    m_parsing(t_pd *pd)
         pd->n++;
         skip_to_next(0, pd);
     }
+    while (pd->i_b[pd->i] == '\n')
+        pd->i++;
+    map_p(pd);
 }
