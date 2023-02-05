@@ -97,7 +97,16 @@ void    m_parsing(t_pd *pd)
         pd->n++;
         skip_to_next(0, pd);
     }
-    while (pd->i_b[pd->i] == '\n')
+    while (pd->i_b[pd->i] == '\n' || pd->i_b[pd->i] == ' ')
+    {
+        if (pd->i_b[pd->i] == ' ')
+        {
+            if (!check_empty(&pd->i_b[pd->i]))
+                break;
+        }
         pd->i++;
-    map_p(pd);
+    }
+    printf("the i_b is |%s|\n", &pd->i_b[pd->i]);
+    // printf("i == %d\n", pd->i);
+    // map_p(pd);
 }
