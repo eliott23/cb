@@ -1,4 +1,5 @@
 #include "p.h"
+
 void    *ft_calloc(size_t i)
 {
     size_t  l;

@@ -1,10 +1,35 @@
 
 #include "p.h"
 
+// void    rm_spaces(char *s)
+// {
+//     int i;
+
+//     i = 0;
+//     if (s)
+//     {
+//         while (s[i])
+//     }
+// }
+
 void    map_p(t_pd *pd)
 {
-    int i = 0;
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
     if (!pd->i_b[pd->i])
         f_perror();
-    ft_split(&pd->i_b[pd->i], '\n');
+    // pd->map = ft_split(&pd->i_b[pd->i], '\n');
+    // while (pd->map[i])
+    // {
+    //     if (!m_srch(&pd->map[i][j], '1') && !m_srch(&pd->map[i][j], '0'))
+    // }
+    i = 0;
+    // while (pd->map[i])
+    // {
+    //     printf("%s\n", pd->map[i]);
+    //     i++;
+    // }
 }

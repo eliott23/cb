@@ -35,7 +35,7 @@ void    skip_to_next(int m, t_pd *pd)
         pd->i++;
     if (pd->i_b[pd->i] == '\n' && m)
         f_perror();
-    if (pd->i_b[pd->i] == ' ' && m)
+    while (pd->i_b[pd->i] == ' ' && m)
         pd->i++;
     if (m)
     {
