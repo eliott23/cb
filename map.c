@@ -1,14 +1,39 @@
 #include "p.h"
-// void    rm_spaces(char *s)
-// {
-//     int i;
 
-//     i = 0;
-//     if (s)
-//     {
-//         while (s[i])
-//     }
-// }
+void    rm_spaces(t_pd *pd)
+{
+    int     i;
+    int     j;
+    int     k;
+    char    *temp;
+
+    i = 0;
+    j = 0;
+    k = 0;
+    while (pd->map[i])
+    {
+        j = 0;
+        k = 0;
+        temp = ft_strdup(pd->map[i]);
+        free(pd->map[i]);
+        pd->map[i] = malloc(sizeof(char) * (ft_len(temp) + 1));
+        while (temp[j] == ' ')
+            j++;
+        printf("lol\n");
+        while (temp[j])
+        {
+            if (temp[j] != ' ')
+            {
+                pd->map[i][k] = temp[j];
+                k++;
+            }
+            j++;
+        }
+        pd->map[i][k] = 0;
+        i++;
+        free(temp);
+    }
+}
 
 int check_empty(char *s)
 {
@@ -108,11 +133,14 @@ void    map_p(t_pd *pd)
     pd->map = ft_split(&pd->i_b[pd->i], '\n');
     if (!pd->map)
         f_perror();
+    printf("|");
     while (pd->map[i])
     {
         printf("%s\n", pd->map[i]);
         i++;
     }
-    check_maze(pd->map);
+    printf("|");
+    rm_spaces(pd);
+    // check_maze(pd->map);
     i = 0;
 }
