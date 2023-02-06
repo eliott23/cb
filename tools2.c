@@ -9,7 +9,7 @@ int ft_len(char *s)
         return (0);
     while (s[i])
         i++;
-    return (0);
+    return (i);
 }
 int m_srch(char *s, char c, char lim)
 {

@@ -8,8 +8,6 @@ void    rm_spaces(t_pd *pd)
     char    *temp;
 
     i = 0;
-    j = 0;
-    k = 0;
     while (pd->map[i])
     {
         j = 0;
@@ -18,8 +16,7 @@ void    rm_spaces(t_pd *pd)
         free(pd->map[i]);
         pd->map[i] = malloc(sizeof(char) * (ft_len(temp) + 1));
         while (temp[j] == ' ')
-            j++;
-        printf("lol\n");
+            pd->map[i][k++] = temp[j++];
         while (temp[j])
         {
             if (temp[j] != ' ')
@@ -103,6 +100,7 @@ void    check_newl(char *s)
         i++;
     }
 }
+
 void    check_maze(char **map)
 {
     int i;
@@ -113,7 +111,9 @@ void    check_maze(char **map)
     while (map[i])
     {
         j = 0;
-        while (map[i][j])
+        while (map[i][j] && map[i][j] != 1)
+            j++;
+        while (map[i][j] == 1)
             j++;
         i++;
     }
@@ -133,6 +133,7 @@ void    map_p(t_pd *pd)
     pd->map = ft_split(&pd->i_b[pd->i], '\n');
     if (!pd->map)
         f_perror();
+    rm_spaces(pd);
     printf("|");
     while (pd->map[i])
     {
@@ -140,7 +141,6 @@ void    map_p(t_pd *pd)
         i++;
     }
     printf("|");
-    rm_spaces(pd);
     // check_maze(pd->map);
     i = 0;
 }
