@@ -50,6 +50,7 @@ char    *m_read(char *name)
 int main(int ac, char **av)
 {
     t_pd    pd;
+    int     fd;
 
     if (ac != 2)
         f_perror();
@@ -58,10 +59,26 @@ int main(int ac, char **av)
         f_perror();
     check_elmnt_n(0, &pd, 0);
     m_parsing(&pd);
-    printf("NO:%s\n", pd.no);
-    printf("SO:%s\n", pd.so);
-    printf("WE:%s\n", pd.we);
-    printf("EA:%s\n", pd.ea);
-    printf("n:%d\n", pd.n);
-    sleep(100);
+    // fd = open(pd.no, O_RDONLY);
+    // if (fd == -1)
+    //     f_perror();
+    // close(fd);
+    // fd = open(pd.so, O_RDONLY);
+    // if (fd == -1)
+    //     f_perror();
+    // close(fd);
+    // // printf("NO:%s\n", pd.no);
+    // fd = open(pd.ea, O_RDONLY);
+    // if (fd == -1)
+    //     f_perror();
+    // close(fd);
+    // fd = open(pd.we, O_RDONLY);
+    // if (fd == -1)
+    //     f_perror();
+    // close(fd);
+    // printf("SO:%s\n", pd.so);
+    // printf("WE:%s\n", pd.we);
+    // printf("EA:%s\n", pd.ea);
+    // printf("n:%d\n", pd.n);
+    // sleep(100);
 }

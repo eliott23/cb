@@ -118,20 +118,20 @@ void    map_p(t_pd *pd)
     pd->map = ft_split(&pd->i_b[pd->i], '\n');
     if (!pd->map)
         f_perror();
-    printf("|");
-    while (pd->map[i])
-    {
-        printf("%s\n", pd->map[i]);
-        i++;
-    }
-    printf("|");
+    // printf("|");
+    // while (pd->map[i])
+    // {
+    //     printf("%s\n", pd->map[i]);
+    //     i++;
+    // }
+    // printf("|");
     i = 0;
     while (pd->map[i])
     {
         j = 0;
         while (pd->map[i][j])
         {
-            if (pd->map[i][j] == '0')
+            if (pd->map[i][j] == '0' || pd->map[i][j] == 'N' || pd->map[i][j] == 'W' || pd->map[i][j] == 'E' || pd->map[i][j] == 'S')
                 check_position(i, j, pd->map);
             j++;
         }

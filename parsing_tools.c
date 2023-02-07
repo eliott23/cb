@@ -88,6 +88,8 @@ void    m_parsing(t_pd *pd)
     e = 0;
     while (pd->i_b[pd->i] && pd->n < 6)
     {
+        while (pd->i_b[pd->i] == ' ')
+            pd->i++;
         while (pd->i_b[pd->i] == '\n')
             pd->i++;
         e = element_id((pd->i_b) + pd->i);
