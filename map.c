@@ -1,36 +1,26 @@
 #include "p.h"
 
-void    rm_spaces(t_pd *pd)
-{
-    int     i;
-    int     j;
-    int     k;
-    char    *temp;
+// void   check_spaces(t_pd *pd)
+// {
+//     int     i;
+//     int     j;
+//     int     k;
 
-    i = 0;
-    while (pd->map[i])
-    {
-        j = 0;
-        k = 0;
-        temp = ft_strdup(pd->map[i]);
-        free(pd->map[i]);
-        pd->map[i] = malloc(sizeof(char) * (ft_len(temp) + 1));
-        while (temp[j] == ' ')
-            pd->map[i][k++] = temp[j++];
-        while (temp[j])
-        {
-            if (temp[j] != ' ')
-            {
-                pd->map[i][k] = temp[j];
-                k++;
-            }
-            j++;
-        }
-        pd->map[i][k] = 0;
-        i++;
-        free(temp);
-    }
-}
+//     i = 0;
+//     while (pd->map[i])
+//     {
+//         j = 0;
+//         while (pd->map[i][j] == ' ')
+//             j++;
+//         while (pd->map[i][j])
+//         {
+//             if (pd->map[i][j] == ' ' && ) 
+//                 f_perror();
+//             j++;
+//         }
+//         i++;
+//     }
+// }
 
 int check_empty(char *s)
 {
@@ -110,11 +100,6 @@ void    check_maze(char **map)
     j = 0;
     while (map[i])
     {
-        j = 0;
-        while (map[i][j] && map[i][j] != 1)
-            j++;
-        while (map[i][j] == 1)
-            j++;
         i++;
     }
 }
@@ -133,7 +118,6 @@ void    map_p(t_pd *pd)
     pd->map = ft_split(&pd->i_b[pd->i], '\n');
     if (!pd->map)
         f_perror();
-    rm_spaces(pd);
     printf("|");
     while (pd->map[i])
     {
@@ -141,6 +125,16 @@ void    map_p(t_pd *pd)
         i++;
     }
     printf("|");
-    // check_maze(pd->map);
     i = 0;
+    while (pd->map[i])
+    {
+        j = 0;
+        while (pd->map[i][j])
+        {
+            if (pd->map[i][j] == '0')
+                check_position(i, j, pd->map);
+            j++;
+        }
+        i++;
+    }
 }

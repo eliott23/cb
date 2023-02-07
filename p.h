@@ -19,6 +19,8 @@ typedef struct pd{
     int     n;
     int     l;
 }t_pd;
+void    check_position(int i, int j, char **map);
+int ft_srch(char *s, char c);
 int ft_len(char *s);
 int check_empty(char *s);
 int m_srch(char *s, char c, char lim);
