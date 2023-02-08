@@ -91,19 +91,6 @@ void    check_newl(char *s)
     }
 }
 
-void    check_maze(char **map)
-{
-    int i;
-    int j;
-
-    i = 0;
-    j = 0;
-    while (map[i])
-    {
-        i++;
-    }
-}
-
 void    map_p(t_pd *pd)
 {
     int     i;

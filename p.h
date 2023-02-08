@@ -19,6 +19,9 @@ typedef struct pd{
     int     n;
     int     l;
 }t_pd;
+void	valid_RGB(char **rgb);
+long long int	ft_atoi(const char *str);
+void		check_RGB(char *path);
 void    check_position(int i, int j, char **map);
 int ft_srch(char *s, char c);
 int ft_len(char *s);

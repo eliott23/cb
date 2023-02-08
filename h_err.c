@@ -45,8 +45,10 @@ void    skip_to_next(int m, t_pd *pd)
     }
     else
     {
-        if (pd->i_b[pd->i] == ' ')
+        if (!check_empty(&pd->i_b[pd->i]))
             f_perror();
+        while (pd->i_b[pd->i] && pd->i_b[pd->i] != '\n')
+            pd->i++;
         if (pd->i_b[pd->i])
             pd->i++;
     }

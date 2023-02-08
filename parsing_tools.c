@@ -30,7 +30,7 @@ int element_id(char *s)
             return (i);
         i++;
     }
-    printf("%s\n", s);
+    printf("lol |%s|", s);
     f_perror();
     return (-1);
 }
@@ -47,13 +47,17 @@ void    store_path(t_pd *pd, char *path, int e)
         pd->ea = path;
     if (e == 4)
     {
+        check_RGB(path);
         pd->floor = ft_split(path, ',');
         free(path);
+        valid_RGB(pd->floor);
     }
     if (e == 5)
     {
+        check_RGB(path);
         pd->sqef = ft_split(path, ',');
         free(path);
+        valid_RGB(pd->sqef);
     }
 }
 
@@ -88,10 +92,10 @@ void    m_parsing(t_pd *pd)
     e = 0;
     while (pd->i_b[pd->i] && pd->n < 6)
     {
-        while (pd->i_b[pd->i] == ' ')
+        while (pd->i_b[pd->i] == ' ' || pd->i_b[pd->i] == '\n')
             pd->i++;
-        while (pd->i_b[pd->i] == '\n')
-            pd->i++;
+        if (pd->i && pd->i_b[pd->i - 1] == ' ')
+            f_perror();
         e = element_id((pd->i_b) + pd->i);
         check_elmnt_n(1, pd, e);
         skip_to_next(1, pd);
