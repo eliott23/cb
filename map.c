@@ -105,13 +105,6 @@ void    map_p(t_pd *pd)
     pd->map = ft_split(&pd->i_b[pd->i], '\n');
     if (!pd->map)
         f_perror();
-    // printf("|");
-    // while (pd->map[i])
-    // {
-    //     printf("%s\n", pd->map[i]);
-    //     i++;
-    // }
-    // printf("|");
     i = 0;
     while (pd->map[i])
     {
