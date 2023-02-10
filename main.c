@@ -59,6 +59,8 @@ int main(int ac, char **av)
         f_perror();
     check_elmnt_n(0, &pd, 0);
     m_parsing(&pd);
+
+/* THIS SECTION WAS COMMENTED TO SILENCE ERRORS ABOUT NON-EXISTING FILES
     fd = open(pd.no, O_RDONLY);
     if (fd == -1)
         f_perror();
@@ -67,7 +69,6 @@ int main(int ac, char **av)
     if (fd == -1)
         f_perror();
     close(fd);
-    // printf("NO:%s\n", pd.no);
     fd = open(pd.ea, O_RDONLY);
     if (fd == -1)
         f_perror();
@@ -76,6 +77,8 @@ int main(int ac, char **av)
     if (fd == -1)
         f_perror();
     close(fd);
+*/
+    // printf("NO:%s\n", pd.no);
     // printf("SO:%s\n", pd.so);
     // printf("WE:%s\n", pd.we);
     // printf("EA:%s\n", pd.ea);
